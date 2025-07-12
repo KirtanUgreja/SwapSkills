@@ -82,6 +82,15 @@ CREATE TABLE `reviews` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `swap_request_id`, `reviewer_id`, `reviewee_id`, `rating`, `feedback`, `created_at`) VALUES
+(1, 1, 2, 1, 5, 'John is an excellent teacher! Very patient and knowledgeable about web development. Highly recommend!', '2025-07-12 08:34:38'),
+(2, 1, 1, 2, 4, 'Jane provided great marketing insights. Very professional and helpful throughout our exchange.', '2025-07-12 08:34:38'),
+(3, 2, 3, 1, 5, 'Amazing designer! John created exactly what I was looking for and explained the process clearly.', '2025-07-12 08:34:38'),
+(4, 2, 1, 3, 4, 'Mike is a great fitness trainer. The workout plan was well-structured and easy to follow.', '2025-07-12 08:34:38');
 
 -- --------------------------------------------------------
 
@@ -133,6 +142,14 @@ CREATE TABLE `swap_requests` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `swap_requests`
+--
+
+INSERT INTO `swap_requests` (`id`, `requester_id`, `provider_id`, `requester_skill_id`, `provider_skill_id`, `status`, `message`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 6, 1, 'completed', 'I would love to learn web development from you! I can help with your digital marketing needs in return.', '2025-07-12 08:34:38', '2025-07-12 08:34:38'),
+(2, 3, 1, 9, 2, 'completed', 'Your graphic design skills look amazing! I can offer personal training sessions in exchange.', '2025-07-12 08:34:38', '2025-07-12 08:34:38'),
+(3, 1, 2, 1, 4, 'accepted', 'Hi Jane! I can help you with web development, and your marketing expertise would be perfect for my project.', '2025-07-12 08:34:38', '2025-07-12 08:34:38');
 
 -- --------------------------------------------------------
 
@@ -164,8 +181,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `first_name`, `last_name`, `profile_image`, `location`, `availability`, `bio`, `is_public`, `is_admin`, `is_banned`, `last_login`, `created_at`, `updated_at`) VALUES
+(1, 'john_doe', 'john@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'John', 'Doe', NULL, 'New York', NULL, 'Passionate web developer and designer', 1, 0, 0, NULL, '2025-07-12 08:34:38', '2025-07-12 08:34:38'),
+(2, 'jane_smith', 'jane@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Jane', 'Smith', NULL, 'Los Angeles', NULL, 'Marketing expert and content creator', 1, 0, 0, NULL, '2025-07-12 08:34:38', '2025-07-12 08:34:38'),
+(3, 'mike_wilson', 'mike@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Mike', 'Wilson', NULL, 'Chicago', NULL, 'Fitness trainer and nutritionist', 1, 0, 0, NULL, '2025-07-12 08:34:38', '2025-07-12 08:34:38'),
 (9, 'Admin', 'skillswapodoo@gmail.com', '$2y$10$ljNt/eI.oqZ2JYIUg0.NZ.ngah9OKptWQcS9bBYujwZyAM/lkJHTS', 'Admin', 'admin', NULL, NULL, NULL, NULL, 1, 1, 0, '2025-07-12 08:44:25', '2025-07-12 08:42:48', '2025-07-12 08:44:25'),
 (10, 'Rajani', 'rajanimeet08@gmail.com', '$2y$10$vsztX5aZ3jG0Tk724mP6aO0P63wcy3ENvh8olomUGJQlxQvXigoeS', 'meet', 'Rajani', NULL, NULL, NULL, NULL, 1, 0, 0, '2025-07-12 09:03:03', '2025-07-12 09:02:49', '2025-07-12 09:03:03');
+
+--
+-- Indexes for dumped tables
+--
 
 --
 -- Indexes for table `messages`
@@ -224,6 +248,10 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
@@ -264,6 +292,10 @@ ALTER TABLE `swap_requests`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
 
 --
 -- Constraints for table `messages`

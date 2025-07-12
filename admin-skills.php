@@ -260,7 +260,7 @@ $top_categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     </div>
                                     <div class="skill-stats">
                                         <span class="stat">
-                                            <i class="fas fa-exchange-alt"></i>
+                                            <i class="fa-solid fa-rotate"></i>
                                             <?php echo $skill['request_count']; ?> requests
                                         </span>
                                     </div>

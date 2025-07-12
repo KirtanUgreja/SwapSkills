@@ -320,7 +320,7 @@ $monthly_swaps = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="download-card">
                     <div class="download-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                        <i class="fa-solid fa-rotate"></i>
                     </div>
                     <div class="download-info">
                         <h3>Swap Requests Report</h3>
@@ -374,7 +374,7 @@ $monthly_swaps = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                        <i class="fa-solid fa-rotate"></i>
                     </div>
                     <div class="stat-content">
                         <h3><?php echo $total_swaps; ?></h3>

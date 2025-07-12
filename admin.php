@@ -203,7 +203,8 @@ $old_pending = $stmt->fetch()['count'];
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
-                    <i class="fas fa-exchange-alt"></i>
+                    
+
                 </div>
                 <div class="stat-content">
                     <h3><?php echo $total_swaps; ?></h3>
