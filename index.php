@@ -14,7 +14,28 @@ $user = getCurrentUser();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fa-solid fa-rotate"></i> SwapSkills</h2>
+            </div>
+            <div class="nav-menu">
+                <?php if ($user): ?>
+                    <a href="dashboard.php" class="nav-link">Dashboard</a>
+                    <a href="browse.php" class="nav-link">Browse Skills</a>
+                    <a href="requests.php" class="nav-link">My Requests</a>
+                    <a href="profile.php" class="nav-link">Profile</a>
+                    <a href="logout.php" class="nav-link">Logout</a>
+                <?php else: ?>
+                    <a href="login.php" class="nav-link">Login</a>
+                    <a href="register.php" class="nav-link">Register</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Exchange Skills, Grow Together</h1>
@@ -53,6 +74,7 @@ $user = getCurrentUser();
         </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <h2>How SwapSkills Works</h2>
@@ -89,22 +111,22 @@ $user = getCurrentUser();
         </div>
     </section>
 
-    
+    <!-- Stats Section -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
                 <?php
                 $pdo = getDBConnection();
                 
-                
+                // Get total users
                 $stmt = $pdo->query("SELECT COUNT(*) as count FROM users");
                 $userCount = $stmt->fetch()['count'];
                 
-                
+                // Get total skills
                 $stmt = $pdo->query("SELECT COUNT(*) as count FROM skills");
                 $skillCount = $stmt->fetch()['count'];
                 
-            
+                // Get total successful swaps
                 $stmt = $pdo->query("SELECT COUNT(*) as count FROM swap_requests WHERE status = 'completed'");
                 $swapCount = $stmt->fetch()['count'];
                 ?>
@@ -127,7 +149,40 @@ $user = getCurrentUser();
             </div>
         </div>
     </section>
-    <?php include 'footer.php'; ?>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-rotate"></i> SwapSkills</h3>
+                    <p>Connecting people through skill exchange and collaborative learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="browse.php">Browse Skills</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="privacy.php">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="browse.php?category=Technology">Technology</a></li>
+                        <li><a href="browse.php?category=Design">Design</a></li>
+                        <li><a href="browse.php?category=Health">Health & Fitness</a></li>
+                        <li><a href="browse.php?category=Creative">Creative Arts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SwapSkills. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>

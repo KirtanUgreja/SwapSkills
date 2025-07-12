@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-header">
-                <h2><i class="fas fa-exchange-alt"></i> SwapSkills</h2>
+                <h2><i class="fa-solid fa-rotate"></i> SwapSkills</h2>
                 <h3>Create Account</h3>
                 <p>Join our community and start exchanging skills</p>
             </div>
