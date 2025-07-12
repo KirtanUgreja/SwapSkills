@@ -53,7 +53,7 @@ You can view the mockup here:
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: PHP
-- **Database**: MongoDB
+- **Database**: XAMPP
 - **Tools**: Git, Bootstrap
 
 ---
