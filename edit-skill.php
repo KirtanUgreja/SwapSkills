@@ -67,14 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2><i class="fas fa-exchange-alt"></i> SwapSkills</h2>
+                <h2><i class="fa-solid fa-rotate"></i> SwapSkills</h2>
             </div>
             <div class="nav-menu">
                 <a href="dashboard.php" class="nav-link">Dashboard</a>
                 <a href="browse.php" class="nav-link">Browse Skills</a>
                 <a href="requests.php" class="nav-link">My Requests</a>
                 <a href="chat.php" class="nav-link">
-                    <i class="fas fa-comments"></i> Chat
+                    Chat
                 </a>
                 <a href="profile.php" class="nav-link">Profile</a>
                 <a href="logout.php" class="nav-link">Logout</a>

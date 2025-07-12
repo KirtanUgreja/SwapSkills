@@ -69,7 +69,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2><i class="fas fa-exchange-alt"></i> SwapSkills</h2>
+                <h2><i class="fa-solid fa-rotate"></i> SwapSkills</h2>
             </div>
             <div class="nav-menu">
                 <?php if ($user): ?>
@@ -77,7 +77,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
                     <a href="browse.php" class="nav-link active">Browse Skills</a>
                     <a href="requests.php" class="nav-link">My Requests</a>
                     <a href="chat.php" class="nav-link">
-                        <i class="fas fa-comments"></i> Chat
+                        Chat
                     </a>
                     <a href="profile.php" class="nav-link">Profile</a>
                     <a href="logout.php" class="nav-link">Logout</a>
@@ -182,7 +182,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
                                     <?php endif; ?>
                                 </div>
                                 <div class="user-info">
-                                    <h4><?php echo htmlspecialchars($skill['first_name'] . ' ' . $skill['last_name']); ?></h4>
+                                    <h2><?php echo htmlspecialchars($skill['first_name'] . ' ' . $skill['last_name']); ?></h2>
                                     <?php if ($skill['location']): ?>
                                         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($skill['location']); ?></p>
                                     <?php endif; ?>
@@ -225,26 +225,23 @@ $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
                                         <i class="fas fa-signal"></i>
                                         <?php echo ucfirst($skill['level']); ?>
                                     </span>
+                                    <span>
+                                        <?php if ($user): ?>
+                                            <a href="send-request.php?skill_id=<?php echo $skill['id']; ?>" class="btn btn-primary">
+                                                <i class="fas fa-paper-plane"></i>
+                                                Send Request
+                                            </a>
+                                  
+                                        <?php else: ?>
+                                            <a href="login.php" class="btn btn-primary">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                                Login to Connect
+                                            </a>
+                                        <?php endif; ?>
+                                    </span>
                                 </div>
                             </div>
-                            
-                            <div class="skill-actions">
-                                <?php if ($user): ?>
-                                    <a href="send-request.php?skill_id=<?php echo $skill['id']; ?>" class="btn btn-primary">
-                                        <i class="fas fa-paper-plane"></i>
-                                        Send Request
-                                    </a>
-                                    <a href="profile.php?user_id=<?php echo $skill['user_id']; ?>" class="btn btn-outline">
-                                        <i class="fas fa-user"></i>
-                                        View Profile
-                                    </a>
-                                <?php else: ?>
-                                    <a href="login.php" class="btn btn-primary">
-                                        <i class="fas fa-sign-in-alt"></i>
-                                        Login to Connect
-                                    </a>
-                                <?php endif; ?>
-                            </div>
+                          
                         </div>
                     <?php endforeach; ?>
                 </div>
